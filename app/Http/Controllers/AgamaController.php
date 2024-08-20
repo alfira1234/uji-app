@@ -79,6 +79,6 @@ class AgamaController extends Controller
         $agama = Agama::findOrfail($id);
         $agama->delete();
 
-        return redirect()->route('agama.index')->with('success', 'Data berhasil dihapus!');;
+        return redirect()->route('agama.index')->with('success', 'Data berhasil dihapus!');
     }
 }

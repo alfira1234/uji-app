@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use App\Models\fasilitas;
 use App\Models\jenis;
+use App\Models\Jns_dis;
+use App\Models\Jns_kes;
 use App\Models\Jns_mpp;
 use Illuminate\Database\Seeder;
 use App\Models\Post;
@@ -43,7 +45,38 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Jns_dis::create([
+            'jns_dis' => 'Tunawicara'
+        ]);
+        Jns_dis::create([
+            'jns_dis' => 'Bibirsumbing'
+        ]);
+        Jns_dis::create([
+            'jns_dis' => 'Lumpuh'
+        ]);
+        Jns_dis::create([
+            'jns_dis' => 'Tunadaksa'
+        ]);
+        Jns_dis::create([
+            'jns_dis' => 'Keterbelakangan Mental'
+        ]);
 
+
+        Jns_kes::create([
+            'jns_kon' => 'Gizi Buruk'
+        ]);
+        Jns_kes::create([
+            'jns_kon' => 'Belum Memiliki Jamkes'
+        ]);
+        Jns_kes::create([
+            'jns_kon' => 'ODGJ'
+        ]);
+        Jns_kes::create([
+            'jns_kon' => 'Warga Belum Vaksin'
+        ]);
+        Jns_kes::create([
+            'jns_kon' => 'Warga Belum Vaksin'
+        ]);
         // Post::create([
         //     'tgl_datang' => '2023/10/17',
         //     'jm_datang' => '08:00:00',

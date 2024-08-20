@@ -86,6 +86,6 @@ class PencaharianController extends Controller
         $pencaharian = pencaharian::findOrfail($id);
         $pencaharian->delete();
 
-        return redirect()->route('pencaharian.index')->with('success', 'Data berhasil dihapus!');;
+        return redirect()->route('pencaharian.index')->with('success', 'Data berhasil dihapus!');
     }
 }

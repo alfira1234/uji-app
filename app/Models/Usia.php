@@ -18,7 +18,7 @@ class Usia extends Model
 
     public function pendidikans()
     {
-        return $this->hasMany(Pendidikan::class, 'penduduk_id');
+        return $this->hasMany(Pendidikan::class, 'usia_id');
     }
 }
 

@@ -11,7 +11,7 @@
                 <form method="post" action="/register">
                     {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
                     @csrf
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <label for="name">Name</label>
                         <input type="text" name="name"
                             class="form-control rounded-top @error('name') is-invalid
@@ -23,7 +23,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <label for="username">Username</label>
                         <input type="text" name="username"
                             class="form-control @error('username') is-invalid
@@ -35,7 +35,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <label for="email">Email address</label>
                         <input type="email" name="email"
                             class="form-control @error('email') is-invalid
@@ -47,7 +47,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <label for="password">Password</label>
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid

@@ -1,17 +1,27 @@
 <?php
 
+use App\Models\Profil;
+use App\Models\Potensi;
+use App\Models\Kesehatan;
+use App\Models\Disabilitas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UsiaController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AgamaController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\WargaController;
 use App\Http\Controllers\PendukController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PotensiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KesehatanController;
 use App\Http\Controllers\PendidikanController;
+use App\Http\Controllers\DisabilitasController;
 use App\Http\Controllers\PencaharianController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -129,3 +139,17 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
+
+
+//route profil
+Route::resource('/dashboard/profil', ProfilController::class)->middleware('auth');
+//route warga
+Route::resource('/dashboard/warga', WargaController::class)->middleware('auth');
+//route warga
+Route::resource('/dashboard/kesehatan', KesehatanController::class)->middleware('auth');
+//route warga
+Route::resource('/dashboard/disabilitas', DisabilitasController::class)->middleware('auth');
+//route warga
+Route::resource('/dashboard/umkm', UmkmController::class)->middleware('auth');
+//route warga
+Route::resource('/dashboard/potensi', PotensiController::class)->middleware('auth');
