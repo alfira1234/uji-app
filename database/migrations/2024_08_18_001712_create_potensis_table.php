@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('potensis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->string('potensi');
             $table->string('pengembangan');
             $table->timestamps();

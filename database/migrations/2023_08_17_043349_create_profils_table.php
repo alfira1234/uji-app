@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('ketua_rt');
             $table->string('ketua_rw');
             $table->string('pokmas');

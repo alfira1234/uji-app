@@ -9,56 +9,80 @@
     {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 text-gray-900"> --}}
-    <form class="row g-3" class="mt-6 space-y-6">
-        <div class="col-md-6">
+    <form method="post" action="{{ route('profil.update', $profil->id) }}" class="mt-6 space-y-6"
+        enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+        {{-- <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Ketua RT</label>
-            <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Ketua RW</label>
-            <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-            <label for="inputAddress" class="form-label">Pendamping</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-md-6">
-            <label for="inputCity" class="form-label">Pokmas</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-            <label for="inputState" class="form-label">Koordinat</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">KK</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="email" value="{{ $profil->ketua_rt }}" class="form-control" id="inputEmail4">
+        </div> --}}
+
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="ketua_rt" class="form-label">Ketua RT</label>
+                <input type="text" value="{{ $profil->ketua_rt }}" name="ketua_rt" class="form-control" id="ketua_rt"
+                    placeholder="Nama Ketua Rt">
+            </div>
+            <div class="col-md-6">
+                <label for="ketua_rw" class="form-label">Ketua RW</label>
+                <input type="text" value="{{ $profil->ketua_rw }}" name="ketua_rw" class="form-control" id="ketua_rw"
+                    placeholder="Nama Ketua Rw">
+            </div>
         </div>
 
-        <div class="col-6">
-            <label for="inputAddress2" class="form-label">Kelurahan</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <div class="col-12 mb-3">
+            <label for="pendamping" class="form-label">Pendamping</label>
+            <input type="text" value="{{ $profil->pendamping }}" name="pendamping" class="form-control" id="pendamping"
+                placeholder="Masukkan Nama Pendamping">
         </div>
-        <div class="col-6">
-            <label for="inputAddress2" class="form-label">Kecamatan</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">RT</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">RW</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        {{-- <div class="col-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="pokmas" class="form-label">Pokmas</label>
+                <input type="text" value="{{ $profil->pokmas }}" name="pokmas" class="form-control" id="pokmas"
+                    placeholder="Masukkan Nama Pokmas">
             </div>
-        </div> --}}
+            <div class="col-md-4">
+                <label for="koordinat" class="form-label">Koordinat</label>
+                <input type="text" value="{{ $profil->koordinat }}" name="koordinat" class="form-control" id="koordinat"
+                    placeholder="Masukkan Koordinat misal : -1.25738263,187.26389">
+            </div>
+            <div class="col-md-2">
+                <label for="jml_kk" class="form-label">Jumlah KK</label>
+                <input type="text" value="{{ $profil->jml_kk }}" name="jml_kk" class="form-control" id="jml_kk"
+                    placeholder="Masukkan Jumlah KK">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <label for="kelurahan" class="form-label">Kelurahan</label>
+                <input type="text" value="{{ $profil->kelurahan }}" name="kelurahan" class="form-control" id="kelurahan"
+                    placeholder="Masukkan Kelurahan">
+            </div>
+            <div class="col-6">
+                <label for="kecamatan" class="form-label">Kecamatan</label>
+                <input type="text" value="{{ $profil->kecamatan }}" name="kecamatan" class="form-control" id="kecamatan"
+                    placeholder="Masukkan Kecamatan">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-2">
+                <label for="rt" class="form-label">RT</label>
+                <input type="text" value="{{ $profil->rt }}" name="rt" class="form-control" id="rt"
+                    placeholder="Masukkan Wilayah RT">
+            </div>
+            <div class="col-md-2">
+                <label for="rw" class="form-label">RW</label>
+                <input type="text" value="{{ $profil->rw }}" name="rw" class="form-control" id="rw"
+                    placeholder="Masukkan Wilayah RW">
+            </div>
+        </div>
+
         <div class="col-12">
             <button type="submit" class="btn btn-primary">simpan</button>
             <a href="/dashboard/profil" class="btn btn-warning">Batal</a>

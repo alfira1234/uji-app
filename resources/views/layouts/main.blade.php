@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     {{-- my styles --}}
-    <link rel="stylesheet" href="/css/style.css">
+    {{-- <link rel="stylesheet" href="/css/style.css"> --}}
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
 
-    <title>WPU Blog | {{ $title }}</title>
+    <title>SIME MASBAGIA | {{ $title }}</title>
 </head>
 
 <body>

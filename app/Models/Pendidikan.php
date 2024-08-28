@@ -15,4 +15,9 @@ class Pendidikan extends Model
     {
         return $this->belongsTo(usia::class, 'usia_id');
     }
+
+    public function profil()
+    {
+        return $this->belongsTo(profil::class, 'profil_id');
+    }
 }

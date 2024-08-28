@@ -15,5 +15,8 @@ class Penduduk extends Model
         return $this->belongsTo(Usia::class, 'usia_id');
     }
 
-
+    public function profil()
+    {
+        return $this->belongsTo(profil::class, 'profil_id');
+    }
 }

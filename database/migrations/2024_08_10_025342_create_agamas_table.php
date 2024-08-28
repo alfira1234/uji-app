@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('agamas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->enum('agama', ['Islam','Kristen','Hindu','Budha','Konghuchu','Khatolik','Aliran Kepercayaan']);
             $table->string('Laki')->nullable();
             $table->string('Perempuan')->nullable();

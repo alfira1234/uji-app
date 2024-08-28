@@ -14,10 +14,10 @@ class PotensiController extends Controller
      */
     public function index()
     {
-        $potensi = potensi::orderby('id', 'ASC')->get();
+        // $potensi = potensi::orderby('id', 'ASC')->get();
         return view('dashboard.potensi.index', [
             "title" => "potensi",
-            'potensi' => $potensi
+            'potensi' => Potensi::where('profil_id', auth()->user()->id)->get()
 
         ]);
     }
@@ -49,6 +49,7 @@ class PotensiController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         Potensi::create($validateData);
         //dd($validatedData);
         #untuk ngeread halaman paket tampil

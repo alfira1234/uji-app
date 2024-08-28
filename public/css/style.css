@@ -3,6 +3,41 @@
     max-width: 330px;
     padding: 1rem;
   } */
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: rgb(57, 150, 150);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0rem;
+
+  }
+
+  .navbar .navbar-nav a {
+    color: rgb(85, 88, 90);
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 1rem;
+
+  }
+
+
+  /* .body {
+    margin: 0;
+    padding: 0;
+
+  } */
+
+/*
+.contents {
+    min-height: 100vh;
+    background-color: aliceblue;
+} */
 
   .form-signin .form-floating:focus-within {
     z-index: 2;
@@ -25,3 +60,6 @@
     border-radius: 0;
     margin-bottom: -1px;
   }
+
+
+

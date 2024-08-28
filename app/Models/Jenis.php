@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class jenis extends Model
-{
-    use HasFactory;
+// class jenis extends Model
+// {
+//     use HasFactory;
 
     // public function post()
     // {
@@ -18,4 +18,4 @@ class jenis extends Model
     // {
     //     return $this->belongsTo(fasilitas::class);
     // }
-}
+// }

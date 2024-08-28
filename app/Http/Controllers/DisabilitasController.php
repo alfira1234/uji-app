@@ -15,7 +15,9 @@ class DisabilitasController extends Controller
      */
     public function index()
     {
-        $disabilitas = disabilitas::with(["jns_dis"])->get();
+        $disabilitas =
+        Disabilitas::where('profil_id', auth()->user()->id)->get();
+        Disabilitas::with(["jns_dis"])->get();
         return view('dashboard.disabilitas.index', [
             "title" => "disabilitas",
             'disabilitas' => $disabilitas
@@ -51,6 +53,7 @@ class DisabilitasController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         $validateData['jns_dis_id'] = $validateData['jns_dis'];
         //insert ke table paket
         Disabilitas::create($validateData);

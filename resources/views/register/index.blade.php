@@ -47,7 +47,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating">
                         <label for="password">Password</label>
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid
@@ -61,7 +61,7 @@
                     </div>
 
 
-                    <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Register</button>
+                    <button class="btn btn-info w-100 py-2 mt-3" type="submit">Register</button>
                     {{-- <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p> --}}
                 </form>
                 <small class="d-block text-center mt-3">Already registered? <a href="/login">Login</a></small>

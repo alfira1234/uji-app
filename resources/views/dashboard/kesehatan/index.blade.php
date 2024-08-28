@@ -78,7 +78,7 @@
                 </table>
 
                 <div class="form-group d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="/dashboard/kesehatan" class="btn btn-warning">Kembali</a>
+                    <a href="/dashboard/warga" class="btn btn-warning">Kembali</a>
                     <a href="/dashboard/disabilitas" class="btn btn-primary">Lanjut</a>
                 </div>
             </div>

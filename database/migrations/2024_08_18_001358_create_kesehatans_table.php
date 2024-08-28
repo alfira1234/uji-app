@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('kesehatans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->foreignId('jns_kes_id')->constrained();
             $table->integer('laki');
             $table->integer('perempuan');

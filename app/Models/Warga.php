@@ -11,4 +11,9 @@ class Warga extends Model
 
     protected $guarded = ['id'];
 
+    public function profil()
+    {
+        return $this->belongsTo(profil::class, 'profil_id');
+    }
+
 }

@@ -28,17 +28,17 @@ class DatabaseSeeder extends Seeder
 
         // fasilitas::factory(3)->create();
 
-        jenis::create([
-            'jenis' => 'Paket Keluarga'
-        ]);
+        // jenis::create([
+        //     'jenis' => 'Paket Keluarga'
+        // ]);
 
-        jenis::create([
-            'jenis' => 'Paket Pelajar'
-        ]);
+        // jenis::create([
+        //     'jenis' => 'Paket Pelajar'
+        // ]);
 
-        jenis::create([
-            'jenis' => 'Paket Personal'
-        ]);
+        // jenis::create([
+        //     'jenis' => 'Paket Personal'
+        // ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

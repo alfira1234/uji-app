@@ -10,10 +10,10 @@ class AgamaController extends Controller
     //
     public function index()
     {
-        $agama = Agama::orderby('id', 'ASC')->get();
+        // $agama = Agama::orderby('id', 'ASC')->get();
         return view('agama.index', [
             "title" => "Agama",
-            'agama' => $agama,
+            'agama' => Agama::where('profil_id', auth()->user()->id)->get(),
             // 'agama' => Agama::where(user_id, auth()->user()->id)->get(),
 
         ]);
@@ -44,6 +44,7 @@ class AgamaController extends Controller
 
        // Paket::create($validatedData);
         //insert ke table paket
+        $validateData['profil_id'] = auth()->user()->id;
         Agama::create($validateData);
         //dd($validatedData);
         #untuk ngeread halaman paket tampil

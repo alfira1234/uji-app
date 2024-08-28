@@ -15,8 +15,13 @@ class Pencaharian extends Model
         return $this->belongsTo(Jns_mpp::class, 'jns_mpp_id');
     }
 
-    public function pencaharians()
+    // public function pencaharians()
+    // {
+    //     return $this->hasMany(Pencaharian::class, 'pencaharian_id');
+    // }
+
+    public function profil()
     {
-        return $this->hasMany(Pencaharian::class, 'pencaharian_id');
+        return $this->belongsTo(profil::class, 'profil_id');
     }
 }

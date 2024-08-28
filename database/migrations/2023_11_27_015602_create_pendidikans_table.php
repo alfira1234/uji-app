@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pendidikans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->foreignId('usia_id')->constrained();
             $table->enum('jenis', ['Sekolah Di Usia','Putus Sekolah Usia']);
             $table->string('laki')->nullable();

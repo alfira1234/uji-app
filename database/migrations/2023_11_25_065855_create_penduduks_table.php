@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('penduduks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->foreignId('usia_id')->constrained();
             $table->string('laki')->nullable();
             $table->string('perempuan')->nullable();

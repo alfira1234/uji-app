@@ -2,18 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Penduduk;
 use App\Models\Usia;
+use App\Models\Profil;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
 
 class PendukController extends Controller
 {
     public function index()
     {
-        $penduduk = penduduk::with(["usias"])->get();
+        $penduduk =
+            Penduduk::where('profil_id', auth()->user()->id)->get();
+            penduduk::with(["usias"])->get();
+
+        // Penduduk::where('profil_id', auth()->user()->id)->get();
+        // return Penduduk::where('profil_id', auth()->user()->id)->get();
+        // return Penduduk::where('profil_id')->get();
         return view('penduduk.index', [
             "title" => "penduduk",
-            'penduduk' => $penduduk
+            // 'profil' => Penduduk::where('profil_id', auth()->user()->id)->get(),
+            'penduduk' => $penduduk,
+            // 'profil' => Penduduk::where('profil_id', auth()->profil()->id)->get(),
+            // Penduduk::where('profil_id', auth()->user()->id)->get()
+            // 'profil' => Profil::where('user_id', auth()->user()->id)->get()
+
 
         ]);
 
@@ -33,11 +45,13 @@ class PendukController extends Controller
         //$validatedData =
         $validateData = $request->validate([
             'usia' => 'required',
+            // 'id' => 'required',
             'laki' => '',
             'perempuan' => '',
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         $validateData['usia_id'] = $validateData['usia'];
         //insert ke table paket
         penduduk::create($validateData);

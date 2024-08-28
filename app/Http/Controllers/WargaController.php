@@ -14,10 +14,10 @@ class WargaController extends Controller
      */
     public function index()
     {
-        $warga = Warga::orderby('id', 'ASC')->get();
+        // $warga = Warga::orderby('id', 'ASC')->get();
         return view('dashboard.warga.index', [
             "title" => "warga",
-            'warga' => $warga
+            'warga' => Warga::where('profil_id', auth()->user()->id)->get()
 
         ]);
     }
@@ -50,6 +50,7 @@ class WargaController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         Warga::create($validateData);
         //dd($validatedData);
         #untuk ngeread halaman paket tampil

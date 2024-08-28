@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Penduduk;
 use App\Models\Profil;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -15,9 +17,10 @@ class ProfilController extends Controller
     public function index()
     {
         // $profil = profil::orderby('id', 'ASC')->get();
+        // return Penduduk::where('profil_id', auth()->user()->id)->get();
         return view('dashboard.profil.index', [
             "title" => "profil",
-            // 'profil' => $profil
+            'profil' => Profil::where('user_id', auth()->user()->id)->get(),
 
         ]);
         // return 'ini halaman profil';
@@ -32,7 +35,7 @@ class ProfilController extends Controller
     public function create()
     {
         return view('dashboard.profil.create', [
-            //         "title" => "profil",
+                    "title" => "profil",
                 ]);
     }
 
@@ -44,7 +47,25 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'ketua_rt' => '',
+            'ketua_rw' => '',
+            'pendamping' => '',
+            'pokmas' => '',
+            'rt' => '',
+            'rw' => '',
+            'kelurahan' => '',
+            'kecamatan' => '',
+            'koordinat' => '',
+            'jml_kk' => '',
+
+        ]);
+
+        $validateData['user_id'] = auth()->user()->id;
+        profil::create($validateData);
+        //dd($validatedData);
+        #untuk ngeread halaman paket tampil
+        return redirect()->route('profil.index')->with('success', 'Data berhasil ditambah!');
     }
 
     /**
@@ -64,7 +85,7 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
         // Profil $profil
         // $profil = profil::find($id);
@@ -72,6 +93,8 @@ class ProfilController extends Controller
         // return view('dashboard.profil.edit', [
         //     //         "title" => "profil",
         //         ]);
+        $profil = profil::find($id);
+        return view('dashboard.profil.edit', ["title" => "profil"], compact('profil'));
     }
 
     /**
@@ -81,9 +104,26 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, $id)
     {
-        //
+        $validateData=$request->validate([
+            'ketua_rt' => '',
+            'ketua_rw' => '',
+            'pendamping' => '',
+            'pokmas' => '',
+            'rt' => '',
+            'rw' => '',
+            'kelurahan' => '',
+            'kecamatan' => '',
+            'koordinat' => '',
+            'jml_kk' => '',
+        ]);
+
+
+        profil::where('id',$id)->update($validateData);
+        #untuk ngeread halaman paket tampil
+        return redirect()->route('profil.index')->with('success', 'Data berhasil diupdate!');
+
     }
 
     /**
@@ -92,8 +132,11 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profil $profil)
+    public function destroy($id)
     {
-        //
+        $profil = profil::findOrfail($id);
+        $profil->delete();
+
+        return redirect()->route('profil.index')->with('success', 'Data berhasil dihapus!');
     }
 }

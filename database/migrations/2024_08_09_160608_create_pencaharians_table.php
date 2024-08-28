@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pencaharians', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->foreignId('jns_mpp_id')->constrained();
             $table->string('laki')->nullable();
             $table->string('perempuan')->nullable();

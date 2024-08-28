@@ -15,7 +15,9 @@ class KesehatanController extends Controller
      */
     public function index()
     {
-        $kesehatan = kesehatan::with(["jns_kes"])->get();
+        $kesehatan =
+        Kesehatan::where('profil_id', auth()->user()->id)->get();
+        kesehatan::with(["jns_kes"])->get();
         return view('dashboard.kesehatan.index', [
             "title" => "kesehatan",
             'kesehatan' => $kesehatan
@@ -51,6 +53,7 @@ class KesehatanController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         $validateData['jns_kes_id'] = $validateData['jns_kon'];
         //insert ke table paket
         Kesehatan::create($validateData);

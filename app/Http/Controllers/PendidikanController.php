@@ -11,7 +11,9 @@ class PendidikanController extends Controller
 {
     public function index()
     {
-        $pendidikan = Pendidikan::with(["usias"])->get();
+        $pendidikan =
+        Pendidikan::where('profil_id', auth()->user()->id)->get();
+        Pendidikan::with(["usias"])->get();
         return view('pendidikan.index', [
             "title" => "pendidikan",
             'pendidikan' => $pendidikan
@@ -40,6 +42,7 @@ class PendidikanController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         $validateData['usia_id'] = $validateData['usia'];
         // $validateData['penduduks_id'] = $validateData['laki'];
         // $validateData['penduduks_id'] = $validateData['perempuan'];

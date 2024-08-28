@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('wargas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profil_id')->constrained();
             $table->enum('warga', ['WNI', 'WNA']);
             $table->integer('laki');
             $table->integer('perempuan');

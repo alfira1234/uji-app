@@ -15,4 +15,9 @@ class Kesehatan extends Model
     {
         return $this->belongsTo(Jns_kes::class, 'jns_kes_id');
     }
+
+    public function profil()
+    {
+        return $this->belongsTo(profil::class, 'profil_id');
+    }
 }

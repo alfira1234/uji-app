@@ -10,7 +10,9 @@ class PencaharianController extends Controller
 {
     public function index()
     {
-        $pencaharian = Pencaharian::with(["jns_mpps"])->get();
+        $pencaharian =
+        Pencaharian::where('profil_id', auth()->user()->id)->get();
+        Pencaharian::with(["jns_mpps"])->get();
         return view('pencaharian.index', [
             "title" => "pencaharian",
             'pencaharian' => $pencaharian
@@ -38,6 +40,7 @@ class PencaharianController extends Controller
 
         ]);
 
+        $validateData['profil_id'] = auth()->user()->id;
         $validateData['jns_mpp_id'] = $validateData['jns_mpp'];
         //insert ke table paket
         pencaharian::create($validateData);
